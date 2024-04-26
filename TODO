@@ -1,0 +1,3 @@
+test ex00 with complex types (take them from other cpp projects)
+try to pass not-a-function or a function that takes arguments other than T into the template and see what happens
+write tests for ex01
