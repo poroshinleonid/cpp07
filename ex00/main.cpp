@@ -1,13 +1,12 @@
-#include "TSwap.h"
-#include "TMin.h"
 #include "TMax.h"
+#include "TMin.h"
+#include "TSwap.h"
 #include <iostream>
 #include <string>
 
 void test_subj();
 void test_swap();
 
-  
 int main() {
   test_subj();
   test_swap();
