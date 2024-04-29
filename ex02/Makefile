@@ -1,6 +1,6 @@
 CPP = "c++"
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = ex00_exec
+NAME = ex02_exec
 SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
