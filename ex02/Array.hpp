@@ -11,6 +11,8 @@ public:
       storage_[i] = T();
     }
   }
+
+public:
   Array(const Array &other) : size_(other.size_) {
     storage_ = new T[size_];
     for (unsigned int i = 0; i < size_; i++) {
@@ -35,22 +37,19 @@ public:
     }
   }
 
+public:
   class OutOfRangeException : public std::exception {
-    virtual const char* what() const throw() {
-      return "Index out of range";
-    }
+    virtual const char *what() const throw() { return "Index out of range"; }
   };
 
-  T &operator[](const unsigned int index) {
+  T &operator[](unsigned int index) {
     if (index >= size_) {
       throw OutOfRangeException();
     }
     return storage_[index];
   }
 
-  const unsigned int &size() const {
-    return size_;
-  }
+  unsigned int size() const { return size_; }
 
 private:
   unsigned int size_;
