@@ -1,15 +1,34 @@
-#include "TMax.h"
-#include "TMin.h"
-#include "TSwap.h"
+#include "TMax.hpp"
+#include "TMin.hpp"
+#include "TSwap.hpp"
 #include <iostream>
+#include <map>
 #include <string>
+#include <vector>
 
 void test_subj();
 void test_swap();
+void test_complex();
+void test_comp();
+
+class Point {
+public:
+  int x, y;
+  bool operator==(const Point &other) const {
+    return x == other.x && y == other.y;
+  }
+  bool operator<(const Point &other) const {
+    if (x != other.x)
+      return x < other.x;
+    return y < other.y;
+  }
+};
 
 int main() {
   test_subj();
   test_swap();
+  test_complex();
+  test_comp();
 }
 
 void test_subj() {
@@ -45,3 +64,72 @@ void test_swap() {
   std::cout << "a = " << as << "; b = " << bs << std::endl;
   std::cout << "--------------------------------" << std::endl << std::endl;
 }
+
+void printmap(const std::map<std::string, std::vector<std::string> > &m) {
+  for (auto it = m.begin(); it != m.end(); it++) {
+    std::cout << "\tVector name: " << it->first << std::endl;
+    std::vector<std::string> vv = it->second;
+    for (size_t i = 0; i < vv.size(); i++) {
+      std::cout << "item #" << i << ": " << vv[i] << std::endl;
+    }
+  }
+}
+
+void test_complex() {
+  std::map<std::string, std::vector<std::string> > m;
+  std::vector<std::string> v;
+  v.push_back("first vec first item");
+  v.push_back("first vec sec item");
+  v.push_back("first vec thitd item");
+  v.push_back("first vec 4 item");
+  m["first test item"] = v;
+  v.clear();
+  v.push_back("SECOND vec first item");
+  v.push_back("SECOND vec sec item");
+  v.push_back("SECOND vec thitd item");
+  v.push_back("SECOND vec 4 item");
+  m["second one"] = v;
+  v.clear();
+
+  std::map<std::string, std::vector<std::string>> m2;
+  std::vector<std::string> v2;
+  v2.push_back("Some other map 11");
+  v2.push_back("Some other map 12");
+  m2["other map one"] = v2;
+  v2.clear();
+  v2.push_back("Some other map 21");
+  v2.push_back("Some other map 22");
+  m2["other map two"] = v2;
+  v2.clear();
+
+  std::cout << "Map number one:\n";
+  printmap(m);
+  std::cout << "map number two:\n";
+  printmap(m2);
+
+  ::swap(m, m2);
+  std::cout << "SWAPPING MAPS";
+
+  std::cout << "Map number one:\n";
+  printmap(m);
+  std::cout << "map number two:\n";
+  printmap(m2);
+
+  ::swap(m, m2);
+  std::cout << "SWAPPING MAPS AGAIN";
+
+  std::cout << "Map number one:\n";
+  printmap(m);
+  std::cout << "map number two:\n";
+  printmap(m2);
+
+  std::map<std::string, std::vector<std::string>> m3 = ::max(m, m2);
+  std::map<std::string, std::vector<std::string>> m4 = ::min(m, m2);
+
+  std::cout << "Map number three - max(m, m2):\n";
+  printmap(m3);
+  std::cout << "Map number four - min(m, m2):\n";
+  printmap(m4);
+}
+
+void test_comp() {}
