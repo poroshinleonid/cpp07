@@ -1,5 +1,5 @@
 CPP = "c++"
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror --std=c++17
 NAME = ex01_exec
 SRCS = main.cpp
 
@@ -23,7 +23,7 @@ re: fclean all
 
 format:
 	clang-format -Werror -i --style=LLVM $(SRCS)
-	clang-format -Werror -i --style=LLVM ./*.h
+	clang-format -Werror -i --style=LLVM ./*.hpp
 
 leaks: all
 	valgrind --leak-check=full ./$(NAME)

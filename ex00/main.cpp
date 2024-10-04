@@ -24,11 +24,20 @@ public:
 };
 
 int main() {
-  std::cout << "SUBJECT --------------------------------------------------------------------------" << std::endl;
+  std::cout << "SUBJECT "
+               "---------------------------------------------------------------"
+               "-----------"
+            << std::endl;
   test_subj();
-  std::cout << "SWAP --------------------------------------------------------------------------" << std::endl;
+  std::cout << "SWAP "
+               "---------------------------------------------------------------"
+               "-----------"
+            << std::endl;
   test_swap();
-  std::cout << "COMPLEX CLASS --------------------------------------------------------------------------" << std::endl;
+  std::cout << "COMPLEX CLASS "
+               "---------------------------------------------------------------"
+               "-----------"
+            << std::endl;
   test_complex();
 }
 
@@ -66,7 +75,7 @@ void test_swap() {
   std::cout << "--------------------------------" << std::endl << std::endl;
 }
 
-void printmap(const std::map<std::string, std::vector<std::string> > &m) {
+void printmap(const std::map<std::string, std::vector<std::string>> &m) {
   for (auto it = m.begin(); it != m.end(); it++) {
     std::cout << "\tVector name: " << it->first << std::endl;
     std::vector<std::string> vv = it->second;
@@ -77,7 +86,7 @@ void printmap(const std::map<std::string, std::vector<std::string> > &m) {
 }
 
 void test_complex() {
-  std::map<std::string, std::vector<std::string> > m;
+  std::map<std::string, std::vector<std::string>> m;
   std::vector<std::string> v;
   v.push_back("first vec first item");
   v.push_back("first vec sec item");
@@ -131,7 +140,6 @@ void test_complex() {
   printmap(m3);
   std::cout << "Max map according to std:\n";
   printmap(m4);
-  
 
   m3 = ::min(m, m2);
   m4 = std::min(m, m2);
@@ -141,4 +149,3 @@ void test_complex() {
   std::cout << "Min map according to std:\n";
   printmap(m4);
 }
-
