@@ -1,6 +1,3 @@
-#include "TMax.hpp"
-#include "TMin.hpp"
-#include "TSwap.hpp"
 #include "iter.hpp"
 #include <iostream>
 #include <string>
