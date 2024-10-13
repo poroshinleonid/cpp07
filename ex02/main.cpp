@@ -1,52 +1,9 @@
-// #include "Array.hpp"
-// #include <iostream>
-
-// #define MAX_VAL 750
-// int main(int, char **) {
-//   Array<int> numbers(MAX_VAL);
-//   int *mirror = new int[MAX_VAL];
-//   srand(time(NULL));
-//   for (int i = 0; i < MAX_VAL; i++) {
-//     const int value = rand();
-//     numbers[i] = value;
-//     mirror[i] = value;
-//   }
-
-//   {
-//     Array<int> tmp = numbers;
-//     Array<int> test(tmp);
-//   }
-
-//   for (int i = 0; i < MAX_VAL; i++) {
-//     if (mirror[i] != numbers[i]) {
-//       std::cerr << "didn't save the same value!!" << std::endl;
-//       return 1;
-//     }
-//   }
-//   try {
-//     numbers[-2] = 0;
-//   } catch (const std::exception &e) {
-//     std::cerr << e.what() << '\n';
-//   }
-//   try {
-//     numbers[MAX_VAL] = 0;
-//   } catch (const std::exception &e) {
-//     std::cerr << e.what() << '\n';
-//   }
-
-//   for (int i = 0; i < MAX_VAL; i++) {
-//     numbers[i] = rand();
-//   }
-//   delete[] mirror; //
-//   return 0;
-// }
-
 #include "Array.hpp"
 #include <iostream>
 #include <string>
 #define MAX_VAL 10
 
-// Example custom class for testing
+
 class Point {
 public:
   int x, y;
@@ -126,7 +83,7 @@ void test_int() {
   std::cout << std::endl;
 }
 
-// Test with double array
+
 void test_double() {
   Array<double> numbers(MAX_VAL);
   srand(time(NULL));
@@ -168,10 +125,10 @@ void test_double() {
   }
 
   std::cout << "Change some of the numbers:" << std::endl;
-  numbers[0] = 0;
-  numbers[1] = 1;
-  numbers[2] = 2;
-  numbers[3] = 3;
+  numbers[0] = 0.1234;
+  numbers[1] = 1.2345;
+  numbers[2] = 2.3456;
+  numbers[3] = 3.4567;
   for (unsigned int i = 0; i < numbers.size(); i++) {
     std::cout << numbers[i] << " ";
   }
@@ -187,8 +144,8 @@ void test_double() {
   std::cout << std::endl;
 }
 
-// Test w/ std::string array
-void testStrings() {
+
+void test_strings() {
   Array<std::string> stringArray(4);
   stringArray[0] = "apple";
   stringArray[1] = "banana";
@@ -218,8 +175,7 @@ void testStrings() {
   }
 }
 
-// custom class
-void testPoints() {
+void test_points() {
   Array<Point> pointArray(3);
   pointArray[0] = Point(1, 2);
   pointArray[1] = Point(3, 4);
@@ -254,10 +210,10 @@ int main() {
   std::cout << std::endl << "========= Testing Array with Doubles =========\n";
   test_double();
   std::cout << std::endl << "========= Testing Array with Strings =========\n";
-  testStrings();
+  test_strings();
   std::cout << std::endl
             << "========= Testing Array with Custom Class (Point) =========\n";
-  testPoints();
+  test_points();
 
   return 0;
 }
