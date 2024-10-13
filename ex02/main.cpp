@@ -3,7 +3,6 @@
 #include <string>
 #define MAX_VAL 10
 
-
 class Point {
 public:
   int x, y;
@@ -83,7 +82,6 @@ void test_int() {
   std::cout << std::endl;
 }
 
-
 void test_double() {
   Array<double> numbers(MAX_VAL);
   srand(time(NULL));
@@ -143,7 +141,6 @@ void test_double() {
   }
   std::cout << std::endl;
 }
-
 
 void test_strings() {
   Array<std::string> stringArray(4);

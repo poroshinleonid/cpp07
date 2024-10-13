@@ -24,6 +24,7 @@ re: fclean all
 format:
 	clang-format -Werror -i --style=LLVM $(SRCS)
 	clang-format -Werror -i --style=LLVM ./*.hpp
+	clang-format -Werror -i --style=LLVM ./*.tpp
 
 leaks: all
 	valgrind --leak-check=full ./$(NAME)
